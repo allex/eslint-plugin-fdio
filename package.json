@@ -1,0 +1,58 @@
+{
+  "name": "eslint-config-fdio",
+  "description": "ESLint Shareable Config for typescript and vue project.",
+  "version": "1.0.5",
+  "author": {
+    "name": "Allex Wang",
+    "email": "allex.wxn@gmail.com",
+    "url": "http://iallex.com/"
+  },
+  "repository": "allex/eslint-config-fdio",
+  "main": "index.js",
+  "keywords": [
+    "JavaScript Standard Style",
+    "check",
+    "checker",
+    "code",
+    "code checker",
+    "code linter",
+    "code standards",
+    "code style",
+    "enforce",
+    "eslint",
+    "eslintconfig",
+    "hint",
+    "jscs",
+    "jshint",
+    "lint",
+    "policy",
+    "quality",
+    "simple",
+    "standard",
+    "standard style",
+    "style",
+    "style checker",
+    "style linter",
+    "verify"
+  ],
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.1.0",
+    "@typescript-eslint/parser": "^1.1.0"
+  },
+  "devDependencies": {
+    "tape": "^4",
+    "eslint": "^5",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-vue": "^5",
+    "typescript": "^3.2.1"
+  },
+  "peerDependencies": {
+    "eslint": "^4.19.1 || ^5.15.3",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-vue": "^5"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "tape test/*.js"
+  }
+}
