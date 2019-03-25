@@ -28,12 +28,18 @@
   },
   "rules": {
     "no-empty": [1, { "allowEmptyCatch": true }],
-    "no-mixed-operators": ["error", {
+    "no-mixed-operators": [2, {
       "groups": [
         ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
         ["in", "instanceof"]
       ],
       "allowSamePrecedence": true
+    }],
+    "no-unused-vars": [2, {
+        "vars": "local",
+        "args": "none",
+        "caughtErrors": "none",
+        "ignoreRestSiblings": true
     }],
     "sort-imports": 0,
     "strict": [2, "never"],

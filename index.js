@@ -1,3 +1,5 @@
+var isProd = process.env.NODE_ENV !== 'development'
+
 module.exports = {
   extends: [
     './eslintrc.json'
@@ -11,6 +13,7 @@ module.exports = {
   },
   rules: {
     'strict': 2,
-    'no-debugger': process.env.NODE_ENV !== 'development' ? 2 : 0 // allow debugger during development
+    'no-console': isProd ? 2 : 0,
+    'no-debugger': isProd ? 2 : 0 // allow debugger during development
   }
 }
