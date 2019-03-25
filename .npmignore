@@ -1,5 +1,6 @@
+.babelrc
+.DS_Store
 *.tgz
 *.log
 yarn.lock
 test
-.babelrc
