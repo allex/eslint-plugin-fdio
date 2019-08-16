@@ -67,7 +67,7 @@
     "space-before-function-paren": [1, { "anonymous": "always", "named": "always", "asyncArrow": "always" }],
     "object-curly-spacing": [2, "always"],
     "object-curly-newline": [2, {
-      "ObjectExpression": { "minProperties": 4, "multiline": true, "consistent": true },
+      "ObjectExpression": { "minProperties": 6, "multiline": true, "consistent": true },
       "ObjectPattern": { "minProperties": 8, "multiline": true, "consistent": true },
       "ImportDeclaration": { "minProperties": 8, "multiline": true, "consistent": true },
       "ExportDeclaration": { "minProperties": 8, "multiline": true, "consistent": true }
