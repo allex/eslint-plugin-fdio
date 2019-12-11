@@ -2,7 +2,7 @@ var isProd = process.env.NODE_ENV !== 'development'
 
 module.exports = {
   extends: [
-    './eslintrc.json'
+    './eslintrc.js'
   ].map(require.resolve),
   // Prerequisite `eslint-plugin-vue`, being extended, sets
   // root property `parser` to `'vue-eslint-parser'`, which, for code parsing,
