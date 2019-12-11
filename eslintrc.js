@@ -45,7 +45,7 @@ module.exports = {
     'sort-imports': 0,
     'strict': [2, 'never'],
 
-    'class-methods-use-this': 1,
+    'class-methods-use-this': 0,
     'comma-style': [2, 'last' ],
     'comma-dangle': [2, {
       'arrays': 'never',
