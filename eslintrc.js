@@ -54,6 +54,8 @@ module.exports = {
       'exports': 'never',
       'functions': 'never'
     }],
+
+    'global-require': 0, // this rule should for nodejs only
     'max-len': 0,
 
     'no-empty': [1, { 'allowEmptyCatch': true }],
