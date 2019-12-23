@@ -1,4 +1,4 @@
-# eslint-config-feio
+# eslint-config-fdio
 
 [![npm version](https://badge.fury.io/js/eslint-config-fdio.svg)](http://badge.fury.io/js/eslint-config-fdio)
 

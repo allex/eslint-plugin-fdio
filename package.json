@@ -36,8 +36,8 @@
     "verify"
   ],
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^1.1.0",
-    "@typescript-eslint/parser": "^1.1.0"
+    "@typescript-eslint/eslint-plugin": "^2",
+    "@typescript-eslint/parser": "^2"
   },
   "devDependencies": {
     "tape": "^4",

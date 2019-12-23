@@ -42,6 +42,8 @@ module.exports = {
     'parser': '@typescript-eslint/parser'
   },
   rules: {
+    'arrow-parens': [2, 'as-needed'],
+
     'sort-imports': 0,
     'strict': [2, 'never'],
 
@@ -56,7 +58,9 @@ module.exports = {
     }],
 
     'global-require': 0, // this rule should for nodejs only
+
     'max-len': 0,
+    'max-classes-per-file': 0,
 
     'no-empty': [1, { 'allowEmptyCatch': true }],
     'no-mixed-operators': [2, {
@@ -79,11 +83,10 @@ module.exports = {
     'no-plusplus': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,
-    'no-multiple-empty-lines': 2,
-
     'no-bitwise': 'off',
-    'no-nested-ternary': 'off',
-    'no-multi-assign': 'off',
+    'no-nested-ternary': 0,
+    'no-multi-assign': 0,
+    'no-multiple-empty-lines': [2, { 'max': 1, 'maxEOF': 0 }],
     'no-underscore-dangle': ['error', { 'allowAfterThis': true, 'allowAfterSuper': true, 'enforceInMethodNames': false }],
     'no-empty-function': 'off',
 
@@ -115,6 +118,7 @@ module.exports = {
     'import/no-unresolved': 0,
     'import/no-named-default': 1,
     'import/prefer-default-export': 0,
+    "import/newline-after-import": 2,
     'import/extensions': [
       2,
       'ignorePackages',
@@ -126,6 +130,14 @@ module.exports = {
         'vue': 'always'
       }
     ],
+    'import/order': [2, {
+      'newlines-between': 'always',
+      'pathGroups': [{
+        'pattern': '@/**',
+        'group': 'external',
+        'position': 'after'
+      }]
+    }],
 
     'vue/no-v-html': 'off',
     'vue/max-attributes-per-line': 0,
