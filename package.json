@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-fdio",
   "description": "ESLint Shareable Config for typescript and vue project.",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "author": {
     "name": "Allex Wang",
     "email": "allex.wxn@gmail.com",
