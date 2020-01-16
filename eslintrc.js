@@ -6,15 +6,20 @@ module.exports = {
   // in turn delegates to the parser, specified in `parserOptions.parser`:
   // https://github.com/vuejs/eslint-plugin-vue#what-is-the-use-the-latest-vue-eslint-parser-error
   parserOptions: {
-    'ecmaVersion': 2018,
-    'sourceType': 'module',
-    'ecmaFeatures': {
-      'jsx': true
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
     },
-    parser: '@typescript-eslint/parser'
+    parser: '@typescript-eslint/parser',
+    project: [
+      'tsconfig.json'
+    ],
+    extraFileExtensions: ['.vue']
   },
   plugins: [
     '@typescript-eslint',
+    '@typescript-eslint/tslint',
     'import'
   ],
   extends: [
@@ -22,6 +27,7 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin/src/configs
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:vue/recommended',
     'plugin:import/typescript'
   ],
@@ -125,6 +131,11 @@ module.exports = {
       'ignoreRestSiblings': true,
       'caughtErrors': 'none'
     }],
+
+    'camelcase': 0,
+    '@typescript-eslint/camelcase': 2,
+
+    '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/explicit-function-return-type': 1,
     '@typescript-eslint/no-this-alias': 0,
     '@typescript-eslint/no-empty-interface': 0,
