@@ -13,7 +13,7 @@ module.exports = {
   },
   rules: {
     'strict': 2,
-    'no-console': isProd ? 2 : 0,
+    'no-console': [isProd ? 2 : 0, { 'allow': ['error', 'debug'] }],
     'no-debugger': isProd ? 2 : 0 // allow debugger during development
   }
 }

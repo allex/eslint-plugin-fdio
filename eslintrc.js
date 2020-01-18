@@ -91,12 +91,22 @@ module.exports = {
     'no-plusplus': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,
-    'no-bitwise': 'off',
+    'no-bitwise': 0,
     'no-nested-ternary': 0,
     'no-multi-assign': 0,
     'no-multiple-empty-lines': [2, { 'max': 1, 'maxEOF': 0 }],
-    'no-underscore-dangle': ['error', { 'allowAfterThis': true, 'allowAfterSuper': true, 'enforceInMethodNames': false }],
-    'no-empty-function': 'off',
+    'no-underscore-dangle': [2, {
+      'allowAfterThis': true,
+      'allowAfterSuper': true,
+      'enforceInMethodNames': false
+    }],
+    'no-empty-function': 0,
+    'no-useless-constructor': 0,
+    'no-unused-expressions': [2, {
+      'allowShortCircuit': true,
+      'allowTernary': true,
+      'allowTaggedTemplates': true
+    }],
 
     'func-names': ['error', 'never'],
     'lines-between-class-members': [2, 'always', { 'exceptAfterSingleLine': true }],
@@ -124,7 +134,7 @@ module.exports = {
     'quotes': [2, 'single', { 'allowTemplateLiterals': true, 'avoidEscape': true }],
 
     // note you must disable the base rule as it can report incorrect errors
-    'no-unused-vars': 'off',
+    'no-unused-vars': 0,
     '@typescript-eslint/no-unused-vars': [1, {
       'vars': 'local',
       'args': 'none',
@@ -178,7 +188,7 @@ module.exports = {
       }]
     }],
 
-    'vue/no-v-html': 'off',
+    'vue/no-v-html': 0,
     'vue/max-attributes-per-line': 0,
     'vue/html-self-closing': 0,
     'vue/singleline-html-element-content-newline': 0,
