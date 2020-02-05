@@ -131,6 +131,13 @@ module.exports = {
     'prefer-destructuring': 0,
     'prefer-promise-reject-errors': 0,
 
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": ["const", "let", "var", "class", "block-like"], "next": "export" },
+      { "blankLine": "always", "prev": "export", "next": "*" },
+      { "blankLine": "always", "prev": "block-like", "next": "block" }
+    ],
+
     'quotes': [2, 'single', { 'allowTemplateLiterals': true, 'avoidEscape': true }],
 
     // note you must disable the base rule as it can report incorrect errors
