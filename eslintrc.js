@@ -14,8 +14,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     project: [
       'tsconfig.json'
-    ],
-    extraFileExtensions: ['.vue']
+    ]
   },
   plugins: [
     '@typescript-eslint',
@@ -28,7 +27,6 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:vue/recommended',
     'plugin:import/typescript'
   ],
   settings: {
@@ -193,15 +191,6 @@ module.exports = {
         'group': 'external',
         'position': 'after'
       }]
-    }],
-
-    'vue/no-v-html': 0,
-    'vue/max-attributes-per-line': 0,
-    'vue/html-self-closing': 0,
-    'vue/singleline-html-element-content-newline': 0,
-    'vue/mustache-interpolation-spacing': 0,
-    'vue/no-parsing-error': [2, {
-      'invalid-first-character-of-tag-name': false
     }]
   }
 }
