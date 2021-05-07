@@ -18,7 +18,6 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    '@typescript-eslint/tslint',
     'import'
   ],
   extends: [
@@ -144,11 +143,15 @@ module.exports = {
       'vars': 'local',
       'args': 'none',
       'ignoreRestSiblings': true,
-      'caughtErrors': 'none'
+      'caughtErrors': 'none',
+      'varsIgnorePattern': '^_'
     }],
 
     'camelcase': 0,
     '@typescript-eslint/camelcase': 2,
+
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': [2, 'nofunc'],
 
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/explicit-function-return-type': 1,
