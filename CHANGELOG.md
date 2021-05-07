@@ -1,3 +1,16 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### 1.1.4 (2021-05-07)
+
+
+### Features
+
+* add typescript rules ([405ecde](https://github.com/allex/eslint-config-fdio/commit/405ecde453803646004401285cdca0e5ffa23875))
+* allow use function before defined ([699665b](https://github.com/allex/eslint-config-fdio/commit/699665bcf518ee46b3033dfa0c8607ea3a0729e5))
+* Make vue plugin as optional dependencies ([58070e1](https://github.com/allex/eslint-config-fdio/commit/58070e181547b4c95d23027957027f5943aba600))
+
 13.1.0 / 2018-08-13
 ==================
  - [new] add eslint v5 support (#1834)
