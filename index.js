@@ -14,7 +14,7 @@ module.exports = {
   ].filter(Boolean).map(require.resolve),
   rules: {
     'strict': 2,
-    'no-console': [isProd ? 2 : 0, { 'allow': ['error', 'debug'] }],
+    'no-console': isProd ? [2, { 'allow': [ 'error' ] }] : 0,
     'no-debugger': isProd ? 2 : 0 // allow debugger during development
   }
 }
