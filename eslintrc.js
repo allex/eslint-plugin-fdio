@@ -147,8 +147,7 @@ module.exports = {
       'varsIgnorePattern': '^_'
     }],
 
-    'camelcase': 0,
-    '@typescript-eslint/camelcase': 2,
+    'camelcase': [2, { "properties": "always", "ignoreDestructuring": true, "ignoreImports": true }],
 
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': [2, 'nofunc'],
