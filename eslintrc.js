@@ -53,6 +53,7 @@ module.exports = {
     'window': false
   },
   rules: {
+    'arrow-body-style': 0,
     'arrow-parens': [2, 'as-needed'],
 
     'sort-imports': 0,
