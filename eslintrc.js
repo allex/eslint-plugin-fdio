@@ -1,3 +1,5 @@
+var os = require('os')
+
 var allExtensions = ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.vue']
 
 module.exports = {
@@ -107,6 +109,7 @@ module.exports = {
     }],
 
     'func-names': ['error', 'never'],
+    'linebreak-style': [2, os.EOL === '\r\n' ? 'windows' : 'unix'],
     'lines-between-class-members': [2, 'always', { 'exceptAfterSingleLine': true }],
     'consistent-return': ['error', { 'treatUndefinedAsUnspecified': true }],
 
