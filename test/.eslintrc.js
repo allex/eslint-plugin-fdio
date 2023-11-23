@@ -1,5 +1,5 @@
 module.exports = {
-  "extends": require.resolve("../"),
+  "extends": require.resolve("../configs/base"),
   "rules": {
     // disabled because I find it tedious to write tests while following this rule
     "no-shadow": 0,

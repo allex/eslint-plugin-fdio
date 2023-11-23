@@ -2,5 +2,6 @@
 .DS_Store
 *.tgz
 *.log
+*.tmp
 yarn.lock
 test

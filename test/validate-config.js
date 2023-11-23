@@ -1,17 +1,29 @@
-var path = require('path')
-var eslint = require('eslint')
-var test = require('tape')
+const eslint = require('eslint')
 
-test('load config in eslint to validate all rule syntax is correct', function (t) {
-  var CLIEngine = eslint.CLIEngine
+const { ESLint } = require("eslint")
 
-  var cli = new CLIEngine({
-    useEslintrc: false,
-    configFile: path.resolve(__dirname, '.eslintrc.js')
+describe('eslint', () => {
+  it('load config in eslint to validate all rule syntax is correct', async (t) => {
+    const cli = new ESLint({
+      cwd: __dirname,
+      useEslintrc: true
+    })
+
+    const code = `
+  var foo = 1
+  var bar = function () {}
+  bar(foo)
+  `
+    const results = cli.lintText(code)
+    console.log(results)
+    if (results.errorCount > 0) {
+      console.error(`
+  Lint Error:
+    ${results.messages.map(o => o.message).join('\n')}
+  `)
+    }
+
+    t.equal(results.errorCount, 0)
+    t.end()
   })
-
-  var code = 'var foo = 1\nvar bar = function () {}\nbar(foo)\n'
-
-  t.equal(cli.executeOnText(code).errorCount, 0)
-  t.end()
 })

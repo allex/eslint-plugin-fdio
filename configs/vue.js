@@ -4,6 +4,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/recommended',
+    require.resolve('./base')
   ],
   rules: {
     'vue/no-v-html': 0,

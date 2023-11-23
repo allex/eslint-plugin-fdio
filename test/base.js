@@ -1,12 +1,9 @@
-var config = require('../')
-var test = require('tape')
+const config = require('../')
+const test = require('tape')
 
-test('test basic properties of config', function (t) {
-  t.ok(isObject(config.parserOptions))
+const isObject = obj => typeof obj === 'object' && obj !== null
+
+test('test basic properties of config', (t) => {
   t.ok(isObject(config.rules))
   t.end()
 })
-
-function isObject (obj) {
-  return typeof obj === 'object' && obj !== null
-}

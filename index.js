@@ -1,20 +1,12 @@
-const isProd = process.env.NODE_ENV !== 'development'
-
-const isPluginInstalled = p => {
-  try {
-    return !!require.resolve(p)
-  } catch (e) {}
-  return false
-}
+const base = require('./configs/base')
+const vue = require('./configs/vue')
+const typescript = require('./configs/typescript')
 
 module.exports = {
-  extends: [
-    './eslintrc.js',
-    isPluginInstalled('eslint-plugin-vue') ? './eslintrc.vue.js' : ''
-  ].filter(Boolean).map(require.resolve),
-  rules: {
-    'strict': 2,
-    'no-console': isProd ? [2, { 'allow': [ 'error' ] }] : 0,
-    'no-debugger': isProd ? 2 : 0 // allow debugger during development
+  rules: {},
+  configs: {
+    base: base,
+    typescript: typescript,
+    vue: vue
   }
 }

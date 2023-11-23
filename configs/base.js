@@ -1,38 +1,13 @@
+const EOL = require('os').EOL
 const isProd = process.env.NODE_ENV !== 'development'
 
 module.exports = {
-  parser: "@babel/eslint-parser",
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-    ecmaFeatures: {
-      arrowFunctions: true,
-      destructuring: true,
-      classes: true,
-    },
-    requireConfigFile: false
-  },
-  extends: [
-    'eslint:recommended',
-  ],
-  plugins: [
-    'import'
-  ],
-  env: {
-    'browser': true,
-    'node': true,
-    'es6': true,
-    'mocha': true,
-    'jest': true
-  },
-  globals: {
-    'document': false,
-    'navigator': false,
-    'window': false
-  },
   rules: {
-    'arrow-parens': [2, 'as-needed'],
+    // allow debugger during development
+    'no-debugger': isProd ? 2 : 0,
+    'no-console': [isProd ? 2 : 0, { 'allow': ['error', 'debug'] }],
 
+    'arrow-parens': 0,
     'sort-imports': 0,
     'strict': [2, 'never'],
 
@@ -84,6 +59,7 @@ module.exports = {
     }],
 
     'func-names': ['error', 'never'],
+    'linebreak-style': [2, EOL === '\r\n' ? 'windows' : 'unix'],
     'lines-between-class-members': [2, 'always', { 'exceptAfterSingleLine': true }],
     'consistent-return': ['error', { 'treatUndefinedAsUnspecified': true }],
 
@@ -118,31 +94,5 @@ module.exports = {
     'no-unused-vars': 2,
     'camelcase': 2,
     'no-use-before-define': 2,
-
-    'import/no-unresolved': 0,
-    'import/no-named-default': 1,
-    'import/prefer-default-export': 0,
-    'import/newline-after-import': 2,
-    'import/extensions': [
-      2,
-      'ignorePackages',
-      {
-        'js': 'never',
-        'jsx': 'never',
-        'ts': 'never',
-        'tsx': 'never',
-        'vue': 'always'
-      }
-    ],
-    'import/order': [2, {
-      'newlines-between': 'always',
-      'pathGroups': [{
-        'pattern': '@/**',
-        'group': 'external',
-        'position': 'after'
-      }]
-    }],
-    'no-console': [isProd ? 2 : 0, { 'allow': ['error', 'debug'] }],
-    'no-debugger': isProd ? 2 : 0 // allow debugger during development
   }
 };
