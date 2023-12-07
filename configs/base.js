@@ -3,14 +3,10 @@ const isProd = process.env.NODE_ENV !== 'development'
 
 module.exports = {
   rules: {
-    // allow debugger during development
-    'no-debugger': isProd ? 2 : 0,
-    'no-console': [isProd ? 2 : 0, { 'allow': ['error', 'debug'] }],
-
     'arrow-parens': 0,
-    'sort-imports': 0,
-    'strict': [2, 'never'],
 
+    'consistent-return': ['error', { 'treatUndefinedAsUnspecified': true }],
+    'camelcase': 2,
     'class-methods-use-this': 0,
     'comma-style': [2, 'last' ],
     'comma-dangle': [2, {
@@ -21,10 +17,46 @@ module.exports = {
       'functions': 'never'
     }],
 
+    'func-names': [2, 'never'],
     'global-require': 0, // this rule should for nodejs only
 
-    'max-len': 0,
-    'max-classes-per-file': 0,
+    // this option sets a specific tab width for your code
+    // https://eslint.org/docs/rules/indent
+    indent: [2, 2, {
+      SwitchCase: 1,
+      VariableDeclarator: 1,
+      outerIIFEBody: 1,
+      // MemberExpression: null,
+      FunctionDeclaration: {
+        parameters: 1,
+        body: 1
+      },
+      FunctionExpression: {
+        parameters: 1,
+        body: 1
+      },
+      CallExpression: {
+        arguments: 1
+      },
+      ArrayExpression: 1,
+      ObjectExpression: 1,
+      ImportDeclaration: 1,
+      flatTernaryExpressions: false,
+      // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
+      ignoredNodes: [
+        // inspaire from airbnb-base
+        'JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXFragment', 'JSXOpeningFragment', 'JSXClosingFragment', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild',
+        // es6 with decorators
+        `FunctionExpression > .params[decorators.length > 0]`,
+        `FunctionExpression > .params > :matches(Decorator, :not(:first-child))`,
+        `ClassBody.body > PropertyDefinition[decorators.length > 0] > .key`
+      ],
+      ignoreComments: false
+    }],
+
+    // allow debugger during development
+    'no-debugger': isProd ? 2 : 0,
+    'no-console': [isProd ? 2 : 0, { 'allow': ['error', 'debug'] }],
 
     'no-empty': [1, { 'allowEmptyCatch': true }],
     'no-mixed-operators': [2, {
@@ -58,10 +90,14 @@ module.exports = {
       'allowTaggedTemplates': true
     }],
 
-    'func-names': ['error', 'never'],
+    'no-unused-vars': 2,
+    'no-use-before-define': 2,
+
+    'max-len': 0,
+    'max-classes-per-file': 0,
+
     'linebreak-style': [2, EOL === '\r\n' ? 'windows' : 'unix'],
     'lines-between-class-members': [2, 'always', { 'exceptAfterSingleLine': true }],
-    'consistent-return': ['error', { 'treatUndefinedAsUnspecified': true }],
 
     'semi': [2, 'never', { 'beforeStatementContinuationChars': 'always' }],
     'space-before-function-paren': [1, {
@@ -78,21 +114,21 @@ module.exports = {
       'ExportDeclaration': { 'minProperties': 8, 'multiline': true, 'consistent': true }
     }],
 
-    'prefer-const': ['error', {'destructuring': 'all'}],
+    'prefer-const': [2, {'destructuring': 'all'}],
     'prefer-destructuring': 0,
     'prefer-promise-reject-errors': 0,
 
-    "padding-line-between-statements": [
-      "error",
-      { "blankLine": "always", "prev": ["const", "let", "var", "class", "block-like"], "next": "export" },
-      { "blankLine": "always", "prev": "export", "next": "*" },
-      { "blankLine": "always", "prev": "block-like", "next": "block" }
+    'padding-line-between-statements': [
+      2,
+      { 'blankLine': 'always', 'prev': ['const', 'let', 'var', 'class', 'block-like'], 'next': 'export' },
+      { 'blankLine': 'always', 'prev': 'export', 'next': '*' },
+      { 'blankLine': 'always', 'prev': 'block-like', 'next': 'block' },
+      { 'blankLine': 'any', 'prev': 'export', 'next': 'export' }
     ],
 
     'quotes': [2, 'single', { 'allowTemplateLiterals': true, 'avoidEscape': true }],
 
-    'no-unused-vars': 2,
-    'camelcase': 2,
-    'no-use-before-define': 2,
+    'sort-imports': 0,
+    'strict': [2, 'never']
   }
 };
