@@ -1,60 +1,43 @@
 {
-  "name": "eslint-config-fdio",
-  "description": "ESLint Shareable Config for typescript and vue project.",
+  "name": "@fdio/eslint-plugin",
+  "description": "An ESLint plugin which provides common and enhance lint rules for Vue or TypeScript codebases.",
   "version": "2.0.0",
   "author": {
     "name": "Allex Wang",
     "email": "allex.wxn@gmail.com",
-    "url": "http://iallex.com/"
+    "url": "https://iallex.com/"
   },
-  "repository": "allex/eslint-config-fdio",
+  "repository": "allex/eslint-plugin-fdio",
+  "keywords": [
+    "typescript lint",
+    "vue lint",
+    "code standards",
+    "eslint"
+  ],
+  "type": "commonjs",
   "exports": {
     ".": {
-      "default": "./index.js"
+      "default": "./dist/index.js"
     },
     "./package.json": "./package.json",
-    "./base": "./configs/base.js",
-    "./vue": "./configs/vue.js",
-    "./typescript": "./configs/typescript.js"
+    "./use-at-your-own-risk/rules": {
+      "default": "./dist/rules/index.js"
+    }
   },
-  "keywords": [
-    "JavaScript Standard Style",
-    "check",
-    "checker",
-    "code",
-    "code checker",
-    "code linter",
-    "code standards",
-    "code style",
-    "enforce",
-    "eslint",
-    "eslintconfig",
-    "hint",
-    "jscs",
-    "jshint",
-    "lint",
-    "policy",
-    "quality",
-    "simple",
-    "standard",
-    "standard style",
-    "style",
-    "style checker",
-    "style linter",
-    "verify"
-  ],
   "dependencies": {},
   "devDependencies": {
+    "@typescript-eslint/parser": "^6",
     "eslint": "^8",
-    "jest": "^29",
-    "typescript": "^4",
+    "eslint-plugin-import": "^2",
     "eslint-plugin-vue": "^9",
-    "eslint-plugin-import": "^2"
+    "jest": "^29",
+    "typescript": "^5",
+    "eslint-config-airbnb-base": "^15"
   },
   "optionalDependencies": {
-    "eslint-plugin-vue": "^9",
     "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^6"
+    "@typescript-eslint/parser": "^6",
+    "eslint-plugin-vue": "^9"
   },
   "peerDependencies": {
     "eslint": "^8",
@@ -62,6 +45,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "jest --passWithNoTests test/*.js"
-  }
+    "build": "tsc -p .",
+    "test": "jest --passWithNoTests test/*.js",
+    "lint": "eslint --ext ts ./src",
+    "prepare": "if [ ! -d 'lib' ]; then yarn build; fi"
+  },
+  "files": [
+    "dist",
+    "*.js"
+  ]
 }
