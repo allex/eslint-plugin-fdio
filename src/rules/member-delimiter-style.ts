@@ -11,6 +11,7 @@ type Delimiter = 'comma' | 'none' | 'semi';
 type TypeOptions = {
   delimiter?: Delimiter;
   requireLast?: boolean;
+  ignoreValueAssign?: boolean; // Ignore if property with value assignment, For class memeber only {TSESTree.PropertyDefinition}
 };
 type TypeOptionsWithType = TypeOptions & {
   type: string;
@@ -118,6 +119,7 @@ const BASE_SCHEMA: JSONSchema4 = {
       properties: {
         delimiter: { $ref: '#/items/0/$defs/multiLineOption' },
         requireLast: { type: 'boolean' },
+        ignoreValueAssign: { type: 'boolean' },
       },
       additionalProperties: false,
     },
@@ -126,6 +128,7 @@ const BASE_SCHEMA: JSONSchema4 = {
       properties: {
         delimiter: { $ref: '#/items/0/$defs/singleLineOption' },
         requireLast: { type: 'boolean' },
+        ignoreValueAssign: { type: 'boolean' },
       },
       additionalProperties: false,
     },
@@ -192,10 +195,12 @@ export default createRule<Options, MessageIds>({
       multiline: {
         delimiter: 'semi',
         requireLast: true,
+        ignoreValueAssign: false,
       },
       singleline: {
         delimiter: 'semi',
         requireLast: false,
+        ignoreValueAssign: false,
       },
       multilineDetection: 'brackets',
     },
@@ -245,6 +250,11 @@ export default createRule<Options, MessageIds>({
       });
 
       if (!lastToken) {
+        return;
+      }
+
+      // Ignore property with value assignment when node type of PropertyDefinition
+      if (member.type === AST_NODE_TYPES.PropertyDefinition && member.value !== null && opts.ignoreValueAssign) {
         return;
       }
 

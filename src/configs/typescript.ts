@@ -86,10 +86,12 @@ export = {
       multiline: {
         delimiter: 'semi',
         requireLast: true,
+        ignoreValueAssign: false,
       },
       singleline: {
         delimiter: 'semi',
         requireLast: true,
+        ignoreValueAssign: false,
       },
     }],
 
