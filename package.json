@@ -1,7 +1,7 @@
 {
   "name": "@fdio/eslint-plugin",
   "description": "An ESLint plugin which provides common and enhance lint rules for Vue or TypeScript codebases.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": {
     "name": "Allex Wang",
     "email": "allex.wxn@gmail.com",
