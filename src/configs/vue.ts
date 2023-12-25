@@ -21,5 +21,7 @@ export = {
     'vue/no-parsing-error': [2, {
       'invalid-first-character-of-tag-name': false,
     }],
+
+    'vue/no-unused-vars': 0,
   },
 };
