@@ -61,7 +61,14 @@ export = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': [2, 'nofunc'],
 
-    '@typescript-eslint/ban-ts-ignore': 2,
+    '@typescript-eslint/ban-ts-comment': [2, {
+      'ts-expect-error': 'allow-with-description',
+      'ts-ignore': true,
+      'ts-nocheck': true,
+      'ts-check': false,
+      minimumDescriptionLength: 3,
+    }],
+
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-this-alias': 0,
     '@typescript-eslint/no-empty-interface': 0,
